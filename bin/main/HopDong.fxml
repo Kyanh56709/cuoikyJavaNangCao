@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import io.github.palexdev.materialfx.controls.MFXButton?>
+<?import io.github.palexdev.materialfx.controls.legacy.MFXLegacyTableView?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800" prefWidth="1200.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.HopDongController">
+    <children>
+        <VBox prefHeight="800.0" prefWidth="294.0" style="-fx-background-color: #3F2B63;">
+            <children>
+                <Pane prefHeight="242.0" prefWidth="288.0" />
+                <Button fx:id="DanhSach" mnemonicParsing="false" prefHeight="57.0" prefWidth="294.0" style="-fx-background-color: #2A1C42;" text="Quản lý hợp đồng" textFill="WHITE">
+                    <font>
+                        <Font size="16.0" />
+                    </font>
+                </Button>
+            </children>
+        </VBox>
+        <VBox layoutX="311.0" layoutY="164.0" prefHeight="621.0" prefWidth="882.0">
+            <children>
+                <GridPane prefHeight="656.0" prefWidth="897.0">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints maxHeight="208.0" minHeight="10.0" prefHeight="32.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="597.0" minHeight="10.0" prefHeight="589.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                    <children>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <MFXButton onAction="#add" prefHeight="25.0" prefWidth="133.0" style="-fx-background-color: #2A1C42;" text="Thêm" textFill="WHITE" />
+                        <Separator orientation="VERTICAL" prefHeight="200.0" />
+                        <MFXButton layoutX="10.0" layoutY="10.0" onAction="#edit" prefHeight="25.0" prefWidth="133.0" style="-fx-background-color: #2A1C42;" text="Sửa" textFill="WHITE" />
+                        <Separator orientation="VERTICAL" prefHeight="200.0" />
+                        <MFXButton layoutX="10.0" layoutY="10.0" onAction="#delete" prefHeight="25.0" prefWidth="133.0" style="-fx-background-color: #2A1C42;" text="Xóa" textFill="WHITE" />
+                        <Separator orientation="VERTICAL" prefHeight="200.0" />
+                     </children>
+                        </HBox>
+                  <MFXLegacyTableView fx:id="table" GridPane.rowIndex="1">
+                     <columns>
+                        <TableColumn fx:id="idCol" prefWidth="27.0" text="ID" />
+                        <TableColumn fx:id="tenChuXeCol" prefWidth="198.0" text="Họ tên chủ xe" />
+                        <TableColumn fx:id="loaiXeCol" minWidth="2.0" prefWidth="97.0" text="Loại xe" />
+                        <TableColumn fx:id="bienSoXeCol" prefWidth="130.0" text="Biển số xe" />
+                        <TableColumn fx:id="hangXeCol" prefWidth="106.5" text="Hãng xe" />
+                        <TableColumn fx:id="thoiGianDeXeCol" prefWidth="115.0" text="Thời gian để xe &#10;(Tháng)" />
+                        <TableColumn fx:id="trongTaiCol" prefWidth="84.0" text="Trọng tải &#10;(Tấn)" />
+                        <TableColumn fx:id="phiTrongXeCol" prefWidth="126.0" text="Phí trông xe/ tháng&#10; (Triệu đồng)" />
+                     </columns>
+                  </MFXLegacyTableView>
+                    </children>
+                </GridPane>
+            </children>
+        </VBox>
+        <Pane layoutX="311.0" layoutY="43.0" prefHeight="120.0" prefWidth="882.0" style="-fx-background-color: #7156DD;">
+         <children>
+            <Label layoutX="41.0" layoutY="24.0" prefHeight="27.0" prefWidth="140.0" text="Tìm kiếm theo" textFill="#eee8e8">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <TextField fx:id="searchTextField" layoutX="403.0" layoutY="25.0" prefHeight="26.0" prefWidth="206.0" />
+            <ChoiceBox fx:id="timKiemBox" layoutX="181.0" layoutY="25.0" prefHeight="26.0" prefWidth="206.0" />
+            <Label layoutX="387.0" layoutY="83.0" prefHeight="19.0" prefWidth="133.0" text="Tổng tiền thu được:" textFill="#fcf8f8">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <TextField fx:id="soNgayTextField" layoutX="181.0" layoutY="79.0" prefHeight="26.0" prefWidth="120.0" />
+            <Label fx:id="tongTienLabel" layoutX="520.0" layoutY="81.0" prefHeight="19.0" prefWidth="170.0" text="0 Triệu Đồng" textFill="WHITE">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Label>
+            <MFXButton fx:id="tinhTienButton" layoutX="314.0" layoutY="79.0" onAction="#tinhTien" text="Nhập" />
+            <Label layoutX="41.0" layoutY="83.0" text="Thời gian gửi xe" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+         </children></Pane>
+    </children>
+</AnchorPane>
